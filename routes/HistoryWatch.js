@@ -3,10 +3,12 @@ const router = require('express').Router()
 
 const {
     getAllHistoryWatch,
-     createHistoryWatch
+    createHistoryWatch,
+    deleteHistory
 } = require('../controllers/HistoryWatch')
 
-router.get('/subscription', getAllHistoryWatch)
-router.post('/subscription', createHistoryWatch)
+router.get('/historyWatch', getAllHistoryWatch)
+router.post('/historyWatch', createHistoryWatch)
+router.delete('/historyWatch', deleteHistory)
 
 module.exports = router

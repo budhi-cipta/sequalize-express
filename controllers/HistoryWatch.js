@@ -45,5 +45,27 @@ module.exports = {
                 status:500
             })
         })
+    },
+    deleteHistory: (req, res) => {
+        const {id} = req.params;
+        HistoryWatch.destroy({
+            where:{
+                id_history:id
+            }
+        })
+        .then(result => {
+            res.status(200).send({
+                message:'history deleted',
+                status:200,
+                result
+            })
+        })
+        .catch(error => {
+            console.log(error);
+            res.status(500).send({
+                message:'internal error',
+                status:500
+            })
+        })
     }
 }
